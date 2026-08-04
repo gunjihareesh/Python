@@ -1,46 +1,51 @@
 import mysql.connector
 
-# Connect to MySQL Server
+# Step 1: Connect to MySQL server (adjust host, user, password)
 conn = mysql.connector.connect(
-    host="database-1.cslu0ymw212o.us-east-1.rds.amazonaws.com",
-    user="admin",
-    password="test123cg"
+    host="database-1.cmc3b738fkql.us-east-1.rds.amazonaws.com",       # or your RDS endpoint
+    user="admin",            # replace with your username
+    password="test123cg" # replace with your password
 )
 
 cursor = conn.cursor()
 
-# Create Database
-cursor.execute("CREATE DATABASE IF NOT EXISTS users")
-print("Database created successfully")
+# Step 2: Create a new database
+cursor.execute("CREATE DATABASE IF NOT EXISTS dept")
+cursor.execute("USE dept")
 
-# Select Database
-cursor.execute("USE users")
+# Step 3: Create a table
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS Employees (
+    EmployeeID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Department VARCHAR(50),
+    Salary DECIMAL(10,2)
+)
+""")
 
-# Insert Records
-sql = """
-INSERT INTO employees (name, email, salary)
-VALUES (%s, %s, %s)
+# Step 4: Insert records
+insert_query = """
+INSERT INTO Employees (FirstName, LastName, Department, Salary)
+VALUES (%s, %s, %s, %s)
 """
-
-employees = [
-    ("Hareesh123", "hareesh123@example.com", 50000)
+records = [
+    ("John", "Doe", "IT", 60000.00),
+    ("Jane", "Smith", "HR", 55000.00),
+    ("Robert", "Brown", "Finance", 70000.00),
+    ("Emily", "Davis", "Marketing", 50000.00)
 ]
 
-cursor.executemany(sql, employees)
-
+cursor.executemany(insert_query, records)
 conn.commit()
 
-print(f"{cursor.rowcount} records inserted successfully")
+print(cursor.rowcount, "records inserted.")
 
-# Display Records
-cursor.execute("SELECT * FROM employees")
-
-rows = cursor.fetchall()
-
-print("\nEmployee Records:")
-for row in rows:
+# Step 5: Verify
+cursor.execute("SELECT * FROM Employees")
+for row in cursor.fetchall():
     print(row)
 
-# Close Connection
+# Close connection
 cursor.close()
 conn.close()

@@ -1,4 +1,7 @@
-import mysql.connector
+from flask import Flask, jsonify
+import pymysql
+
+app = Flask(__name__)
 
 # Step 1: Connect to MySQL server (adjust host, user, password)
 conn = mysql.connector.connect(

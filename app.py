@@ -49,3 +49,16 @@ for row in cursor.fetchall():
 # Close connection
 cursor.close()
 conn.close()
+
+# =========================
+# Health Check
+# =========================
+@app.route('/')
+def index():
+    return "RDS Master API running"
+
+# =========================
+# Entry Point
+# =========================
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)

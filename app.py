@@ -35,9 +35,7 @@ VALUES (%s, %s, %s)
 """
 
 employees = [
-    ("Hareesh", "hareesh@example.com", 50000),
-    ("Ravi", "ravi@example.com", 60000),
-    ("Kumar", "kumar@example.com", 70000)
+    ("Hareesh123", "hareesh123@example.com", 50000)
 ]
 
 cursor.executemany(sql, employees)

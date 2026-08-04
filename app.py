@@ -16,18 +16,6 @@ print("Database created successfully")
 # Select Database
 cursor.execute("USE users")
 
-# Create Table
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS employees (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE,
-    salary DECIMAL(10,2)
-)
-""")
-
-print("Table created successfully")
-
 # Insert Records
 sql = """
 INSERT INTO employees (name, email, salary)

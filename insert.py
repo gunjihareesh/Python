@@ -2,7 +2,7 @@ import mysql.connector
 
 # Connect to your existing database
 conn = mysql.connector.connect(
-    host="database-1.cmc3b738fkql.us-east-1.rds.amazonaws.com",        # or your RDS endpoint
+    host="database-1.c91d775knpjs.us-east-1.rds.amazonaws.com",        # or your RDS endpoint
     user="admin",             # replace with your username
     password="test123cg", # replace with your password
     database="dept"        # your existing database

@@ -1,0 +1,21 @@
+full stack deployment - Public server
+aws secret-key:
+
+1. RDS create with secret key
+2. Ec2: 2.1 Install python3
+        2.2 yum install python-pip
+3. Create IAM role by giving 'SecretsManagerReadWrite' permission to ec2
+4. add role to ec2
+5. run required dependencies:
+  5.1 yum install git
+  5.2 git clone https://github.com/gunjihareesh/Python.git
+  5.3 cd Python
+  5.4 pip install -r requirement.text 
+  5.5 python app.py --update rds host, secret name, region in code
+
+6. Ec2-->root> yum install nginx -y
+   6.1 systemctl start nginx
+   6.2 cd /usr/share/nginx/html/index.html (copy code from git) -- update host details in code
+
+        
+       

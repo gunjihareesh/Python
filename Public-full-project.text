@@ -15,7 +15,11 @@ aws secret-key:
 
 6. Ec2-->root> yum install nginx -y
    6.1 systemctl start nginx
-   6.2 cd /usr/share/nginx/html/index.html (copy code from git) -- update host details in code
+   6.2 cd /usr/share/nginx/html/index.html (copy code from git) -- update public-host details in code
+   or
+   6.3 cd /usr/share/nginx/html/index.html (copy code from git) -- update private-host details in code
+     6.3.1 reverproxy (if we use private, code not work. So we need use reverse proxy use-fronted-proxy.conf file) 
+     6.3.2 in this line from index.html updtae (const backendIP="" //cd /usr/share/nginx/html/index.html)
 
         
        

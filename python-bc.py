@@ -11,7 +11,7 @@ CORS(app)
 # ===============================
 # AWS Secrets Manager Configuration
 # ===============================
-SECRET_NAME = "rds!db-6a7e2182-3d9d-46f7-8826-cffeb93da684"     # Your Secret Name
+SECRET_NAME = "rds!db-00ab7424-0e62-4184-a48d-3032e0e9d891"     # Your Secret Name
 REGION_NAME = "us-east-1"
 
 # ===============================
@@ -42,7 +42,7 @@ def get_db_connection():
     password = get_db_password()
 
     return mysql.connector.connect(
-        host="database-1.cx8s3qplpjwo.us-east-1.rds.amazonaws.com",
+        host="database-1.chomguviznxt.us-east-1.rds.amazonaws.com",
         user="admin",
         password=password,
         database="dev",

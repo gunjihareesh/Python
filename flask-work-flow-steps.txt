@@ -1,0 +1,6 @@
+flask:
+
+1. RDS
+2. python backend by providing rds details
+3. run the flask by adding backend ip
+4. move flask-index.html under flask.apy >> templates>>index.html (this is required)

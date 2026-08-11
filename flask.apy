@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
 # Backend API
-BACKEND_API = "http://10.0.14.140:5000"  # your backend private IP or internl backend load balancer
+BACKEND_API = "internal-in-alb-1134168799.us-east-1.elb.amazonaws.com"  # your backend private IP or internl backend load balancer
 
 
 # Home page: show users
